@@ -42,9 +42,11 @@
     tg.ready();
     tg.expand();
 
+    console.log("Полный URL:", window.location.href);  // Лог полного URL
+
     const urlParams = new URLSearchParams(window.location.search);
     const photogId = urlParams.get('photog') || 'unknown';
-    console.log("photogId из URL:", photogId);
+    console.log("photogId из URL:", photogId);  // Лог photogId
 
     let currentDate = new Date();
     let selectedDate = null;
@@ -149,6 +151,8 @@
         console.log("Отправляю данные в бота:", JSON.stringify(payload));
         tg.sendData(JSON.stringify(payload));
         tg.close();
+      } else {
+        console.log("Нет выбранной даты или времени");
       }
     };
 
